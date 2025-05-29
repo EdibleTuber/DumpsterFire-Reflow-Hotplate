@@ -1,0 +1,43 @@
+Reflow Soldering Hotplate aka “The Dumpster Fire” DIY Reflow Machine for SMD PCB Assembly
+
+What It Is - 2 mins
+	A low-cost reflow soldering hotplate built from an electronics repair heater, controlled by a Raspberry Pi Pico. Follows a proper reflow profile with preheat, soak, and reflow stages.
+
+What It’s Made Of - 10 mins
+	• Heating Element: 850W electronics repair hotplate
+	• Raspberry Pi Pico: brains of the operation
+	• Solid State Relay (SSR): switches AC power to heating elements
+	• Thermocouple + MAX31855: accurate temperature sensing
+	• OLED Display: shows current status & temperature
+	• Rotary Encoder: used to start cycles or select profiles
+	• AC to DC Converter: powers the Pico from wall AC
+	• 10A Fuse: came with the hotplate — keeps it safe
+
+How It’s Wired - 10 mins
+	• AC Hot & Neutral go into: 		
+    → AC/DC converter → Pico & logic (5V) 		
+    → SSR → Heating element (switched line)
+	• Pico controls SSR via GPIO
+	• All DC components share a common ground
+	• AC side and DC side are electrically isolated
+
+How It Works - 5 mins
+	• Reads temperature from thermocouple
+	• Follows a time-based reflow curve:
+		1 Preheat
+		2 Soak
+		3 Reflow
+		4 Cooldown (not controlled by the microcontroller)
+	• Turns the heater on/off via SSR to stay on target
+		• OLED shows stage + temperature in real-time
+
+Why Build It? - 5 mins
+	• Needed to solder 0402 SMD components on 11 PCBs
+	• Professional reflow ovens cost $300+
+	• Built this for ~$150 — learned a ton
+	• Goal: lower the barrier to SMD assembly for others
+      
+ Safety Notes - 5 mins
+	• AC hot is switched, not neutral
+	• All high-voltage wiring fused & isolated
+	• No AC ground or neutral connected to DC side
