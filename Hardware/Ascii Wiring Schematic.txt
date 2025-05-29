@@ -1,0 +1,35 @@
+                             [ 110V AC INPUT ]
+                                   |
+                     (FUSED & SWITCHED INSIDE HOTPLATE)
+                                   |
+                                   |
+                                   +--------------+----------------------------------------+               
+                                                  |                                        |
+                                         [ AC-DC Converter ]                               |
+                                                  |                                        |
+                                                  |                                        |
+                                                  |                                        |
+                                             DC OUT (5V)                                   |
+                                                  |                                        |
+                                                  v                                        |
+                                      +---------------------+                              |
+                                      |  Raspberry Pi Pico  |                              |
+                                      |---------------------|                              |
+                                      |  VSYS <-- 5V DC in  |                              |
+                                      |  GND  <-------------+                              |
+                                      |                     |                              |
+         +----------------------------+---------------------+------------------+           |
+         |                            |                     |                  |           |
+   [MAX31855 SPI]             [OLED SPI Display]   [Rotary Encoder]      [SSR Control]     |
+     (e.g. CS0, SCK, MISO)     (e.g. CS1, SCK, MOSI)     (CLK, DT, SW)       (e.g. GP15)   |
+         |                            |                     |                  |           |
+         |                            |                     |                  |           |
+    Thermocouple                OLED Screen          User Input       SSR (AC-AC, 110V)----+
+                                                       (UI)                    |
+                                                                    +--------------------+
+                                                                    |                    |
+                                                                [ HEATER 1 ]        [ HEATER 2 ]
+                                                                    |                    |
+                                                                    +--------+-----------+
+                                                                             |
+                                                                         AC NEUTRAL
