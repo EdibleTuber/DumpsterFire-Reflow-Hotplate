@@ -8,3 +8,9 @@ I ordered some PCBs and chose not to have the preassembled to reduce cost. Once 
 Currently, I have the hardware done. I'm working on a BOM, but there were a lot of hardware safety considerations to take into account when modifying the hotplate unit I purchased. The wiring was simple enough, but care was taken to isolate the 3.3v circuit from the 110v circuit. The heating elements were wired in parallel, and I broke them out to two seperate 4 post terminals to handle power distrubution. I am using a solid state relay (SSR) to handle the switching of the AC current, and this is all controlled by a pico that monitors temp and controls the logic of the reflow process using a simple Proportional, Integral, and Derivative (PID) algorithm.
 
 Where I am at with the software is I am working to tune the PID to get to a point where I can follow a reflow profile for a given solder paste. My other variable with this is that I have been testing using a reflow profile of 150c - 180c soak and then a reflow target of 230c, but my actual reflow temp for the paste that I want to use is 155c. When I go back to testing I am going to update this, but I am cautiously optimistic currently that I can get there.
+
+#### first run
+![image](https://github.com/user-attachments/assets/2f3d4b7b-8331-4ea2-8b62-7e08c69fe146)
+
+#### sixth run
+![image](https://github.com/user-attachments/assets/ecac81a2-ef0d-46ce-8e63-b955f1285898)
