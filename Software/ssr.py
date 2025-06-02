@@ -2,7 +2,7 @@
 from machine import Pin
 
 class SSR:
-    def __init__(self, pin=15):
+    def __init__(self, pin=16):
         self.control = Pin(pin, Pin.OUT)
         self.off()
 
