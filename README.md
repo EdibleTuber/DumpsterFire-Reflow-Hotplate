@@ -15,3 +15,11 @@ Where I am at with the software is I am working to tune the PID to get to a poin
 #### sixth run
 ![image](https://github.com/user-attachments/assets/c8b9ecd7-0dbb-4168-8ba8-7ca8c1be4b55)
 
+### Eight time is the charm
+Ok, so I updated the hardcoded solder profile to use the lower temp profile for the soldering paste I am actually going to use, and... I was able to follow the profile from what I can see. Here's the curve:
+![image](https://github.com/user-attachments/assets/dd616ea5-446e-4a27-946c-683a630c47fe)
+
+And here is the data sheet for the paste I am going to use to solder my PCBs. It appears to be within spec! 🎉
+![image](https://github.com/user-attachments/assets/269a0a6a-e1b9-4519-a1c2-49138f2be957)
+
+Full datasheet here: https://qualitek.com/863_bi58_tds.pdf
