@@ -27,10 +27,10 @@ def log_data(t_elapsed, stage, temp, target, output):
 
 # ───── Reflow Profile: (duration, lower_temp, upper_temp) ─────
 reflow_profile = [
-    (60, 25, 150),    # Preheat
-    (60, 150, 180),   # Soak
-    (30, 180, 230),   # Reflow
-    (30, 230, 100),   # Cooldown
+    (60, 25, 80),    # Preheat
+    (60, 80, 110),   # Soak
+    (30, 145, 155),   # Reflow
+    (30, 100, 100),   # Cooldown
 ]
 
 # ───── Hardware Init ─────
