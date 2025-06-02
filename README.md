@@ -21,6 +21,8 @@ Ok, so I updated the hardcoded solder profile to use the lower temp profile for 
 ![image](https://github.com/user-attachments/assets/dd616ea5-446e-4a27-946c-683a630c47fe)
 
 And here is the data sheet for the paste I am going to use to solder my PCBs. It appears to be within spec! 🎉
-![image](https://github.com/user-attachments/assets/269a0a6a-e1b9-4519-a1c2-49138f2be957)
+![image](https://github.com/user-attachments/assets/e045908c-c53b-412e-a7d8-e27033aa4b1d)
+
+I will need to manage the active cooling to bring the temp down but this is very good news for me.
 
 Full datasheet here: https://qualitek.com/863_bi58_tds.pdf
