@@ -3,7 +3,7 @@ I am not a certified electrician in any way, shape, or form. I in no way advocat
 
 Again, please don't do this unlesss you are going to take the time to learn more about the type of electricity you are dealing with (which you should be learning about to master the fundamentals), and the precautions that need to be taken to stay safe and healthy.
 
-#The Hardware
+# The Hardware
 All right. If you are still with me let's talk about the hardware.
 
-###work in progress
+### work in progress
