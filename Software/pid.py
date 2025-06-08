@@ -24,9 +24,21 @@ class PID:
         error = self.setpoint - input_value
         d_input = 0 if self._last_input is None else input_value - self._last_input
 
-        self._integral += error * dt
         derivative = -d_input / dt if dt > 0 else 0
 
+        # Predict output before applying integral for anti-windup check
+        pre_output = (
+            self.kp * error +
+            self.ki * self._integral +
+            self.kd * derivative
+        )
+
+        # Only integrate if output not saturated or if error would drive it back toward limits
+        if ((pre_output < self.output_limits[1]) or error < 0) and \
+           ((pre_output > self.output_limits[0]) or error > 0):
+            self._integral += error * dt
+
+        # Recalculate output with possibly updated integral
         output = (
             self.kp * error +
             self.ki * self._integral +
