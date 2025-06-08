@@ -7,15 +7,12 @@ I ordered some PCBs and chose not to have them preassembled to reduce cost. Once
 ### Where am I at?
 Currently, I have the hardware done. I'm working on a BOM, but there were a lot of hardware safety considerations to take into account when modifying the hotplate unit I purchased. The wiring was simple enough, but care was taken to isolate the 3.3v circuit from the 110v circuit. The heating elements were wired in parallel, and I broke them out to two seperate 4 post terminals to handle power distrubution. I am using a solid state relay (SSR) to handle the switching of the AC current, and this is all controlled by a pico that monitors temp and controls the logic of the reflow process using a simple Proportional, Integral, and Derivative (PID) algorithm.
 
-Where I am at with the software is I am working to tune the PID to get to a point where I can follow a reflow profile for a given solder paste. My other variable with this is that I have been testing using a reflow profile of 150c - 180c soak and then a reflow target of 230c, but my actual reflow temp for the paste that I want to use is 155c. When I go back to testing I am going to update this, but I am cautiously optimistic currently that I can get there.
+Where I am at with the software is I am working to tune the PID to get to a point where I can perfect a reflow profile for a given solder paste. I've been able to follow my desired profile successfully, and now I am debugging and fine tuning. Once this is done I'll do a small live test to see how the actual reflow goes and examine the data. After that I'll be adding a menu to set the reflow profile for the run from the display as opposed to hardcoding it.
 
-#### first run
-![image](https://github.com/user-attachments/assets/2f3d4b7b-8331-4ea2-8b62-7e08c69fe146)
+### June 7 update
+Was doing some debugging that came up during a dry run for the small live test. This led to improved pid.py and main.py files. Softer landing when nearing the final temp target to account for thermal inertia for one, and set PID variables whose declarations are at to the top of main.py as well as adding a reflow_output_reduction variable in the same area to help with setting the total percentage output should be after reduction. Made sense so I don't have to hunt them down in the middle of main.py to change them.
 
-#### sixth run
-![image](https://github.com/user-attachments/assets/c8b9ecd7-0dbb-4168-8ba8-7ca8c1be4b55)
-
-### Eight time is the charm
+### Eight time is the charm - Near the end of March, 2025
 Ok, so I updated the hardcoded solder profile to use the lower temp profile for the soldering paste I am actually going to use, and... I was able to follow the profile from what I can see. Here's the curve:
 
 ![image](https://github.com/user-attachments/assets/dd616ea5-446e-4a27-946c-683a630c47fe)
