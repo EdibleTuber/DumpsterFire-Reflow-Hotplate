@@ -9,7 +9,7 @@ Currently, I have the hardware done. I'm working on a BOM, but there were a lot 
 
 Where I am at with the software is I am working to tune the PID to get to a point where I can perfect a reflow profile for a given solder paste. I've been able to follow my desired profile successfully, and now I am debugging and fine tuning. Once this is done I'll do a small live test to see how the actual reflow goes and examine the data. After that I'll be adding a menu to set the reflow profile for the run from the display as opposed to hardcoding it.
 
-### June 7 update
+### 06/07/25 code update
 Was doing some debugging that came up during a dry run for the small live test. This led to improved pid.py and main.py files. Softer landing when nearing the final temp target to account for thermal inertia for one, and set PID variables whose declarations are at to the top of main.py as well as adding a reflow_output_reduction variable in the same area to help with setting the total percentage output should be after reduction. Made sense so I don't have to hunt them down in the middle of main.py to change them.
 
 ### Eight time is the charm - Near the end of March, 2025
