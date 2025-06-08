@@ -12,6 +12,11 @@ Where I am at with the software is I am working to tune the PID to get to a poin
 ### 06/07/25 code update
 Was doing some debugging that came up during a dry run for the small live test. This led to improved pid.py and main.py files. Softer landing when nearing the final temp target to account for thermal inertia for one, and set PID variables whose declarations are at to the top of main.py as well as adding a reflow_output_reduction variable in the same area to help with setting the total percentage output should be after reduction. Made sense so I don't have to hunt them down in the middle of main.py to change them.
 
+Here's my latest reflow profile curve attempt. You can see a little hump there in the middle, but I made an update after that test to account for thermal intertia in the 'waiting' between stages so it should smooth out going forward.
+
+![image](https://github.com/user-attachments/assets/33c55b41-bfc4-4988-a463-32768e45eb2e)
+
+
 ### Eight time is the charm - Near the end of March, 2025
 Ok, so I updated the hardcoded solder profile to use the lower temp profile for the soldering paste I am actually going to use, and... I was able to follow the profile from what I can see. Here's the curve:
 
