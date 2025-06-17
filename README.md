@@ -11,11 +11,52 @@ On the software side I am mostly code complete now. I abandoned PID control in f
 
 ### 6/17/25 Major Code Update
 
-So, the first major thing is that the code has been refactored to be more object oriented and user friendly. Major changes:
+So, the first major thing is that the code has been refactored to be more object oriented and user friendly. Major changes to function and safety. Current feature list is:
+
 * Mode-Based Architecture
   * Refactored code into distinct mode classes: BaseMode, MenuMode, ManualMode, ReflowMode, and ProfileEditMode
   * Clean separation of concerns and improved code organization
   * Simplified main loop by delegating control to mode classes
+* Enhanced Menu System
+  * Consistent navigation across all menus
+  * Clear stage selection and parameter editing interface
+  * Improved encoder handling with reliable short/long press detection
+  * Easy exit to main menu from any submenu
+* Robust Reflow Control
+  * Stage-based temperature control with configurable profiles
+  * Bang-bang control for Preheat stage
+  * PWM-based heating control for other stages
+  * Minimum output thresholds and SSR on-times to prevent ineffective pulsing
+  * Stage timer pauses when temperature drops below lower bound (except Preheat)
+* Thermal Management
+  * Predictive cutoff logic to prevent overshooting
+  * Stage-specific thermal compensation factors
+  * Ramp rate monitoring and logging
+  * Configurable maximum ramp rates
+* Comprehensive Logging
+  * CSV logging of temperature, setpoint, output, and ramp rate
+  * Debug logging for critical operations
+  * Defensive logging with type checking to prevent errors
+  * Stage transition tracking
+* Error Handling
+  * Global try-except wrapper to ensure SSR is turned off on errors
+  * Critical error display on the OLED screen
+  * Graceful handling of sensor read failures
+  * Safe abort functionality from any stage
+* User Interface
+  * Real-time temperature and target display
+  * Stage progress indication
+  * Clear status messages for waiting and paused states
+  * Intuitive parameter editing interface
+* Profile Management
+  * Configurable reflow profiles with duration and temperature bounds
+  * In-system profile editing capability
+  * Stage-specific parameters (duration, low temp, high temp)
+  * Profile validation to ensure logical temperature progression
+
+These features work together to provide a reliable and user-friendly reflow hotplate controller with precise temperature control and robust error handling. While I have done many dry runs leading up to this release, I am still going through the tuning process and if you use a different hot plate than the one that I used you'll have your own tuning to do.
+
+I also owe a more complete bill of materials. It's mostly complete, but I need to add links to the parts that I used and make sure I've included all of them. I've included the major ones at the least.
 
 ### 06/07/25 code update
 Was doing some debugging that came up during a dry run for the small live test. This led to improved pid.py and main.py files. Softer landing when nearing the final temp target to account for thermal inertia for one, and set PID variables whose declarations are at to the top of main.py as well as adding a reflow_output_reduction variable in the same area to help with setting the total percentage output should be after reduction. Made sense so I don't have to hunt them down in the middle of main.py to change them.
